@@ -42,7 +42,7 @@ func newSpecAffinityEdit(cfg *entity.Config, affinity_uc affinity_usecase.UseCas
 
 func (c *CmdSpecAffinityEdit) runCommand(cmd *cobra.Command, args []string) error {
 	if c.affinity_uc == nil {
-		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
+		return errors.New("You haven't setup the configuration. Run `dply config set-dply-server <dply-server-host>`")
 	} else if c.env == "" {
 		return errors.New("`-e` is required")
 	} else if c.name == "" {

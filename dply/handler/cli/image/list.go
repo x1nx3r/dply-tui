@@ -40,7 +40,7 @@ func newCmdImageList(cfg *entity.Config, image_uc image_usecase.UseCase) *CmdIma
 
 func (c *CmdImageList) runCommand(cmd *cobra.Command, args []string) error {
 	if c.image_uc == nil {
-		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
+		return errors.New("You haven't setup the configuration. Run `dply config set-dply-server <dply-server-host>`")
 	} else if c.name == "" {
 		data, err := serviceYaml.GetServiceYAML("service.yaml")
 		if err != nil || data.Name == "" {

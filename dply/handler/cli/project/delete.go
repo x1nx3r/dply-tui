@@ -28,7 +28,7 @@ func newCmdProjectDelete(project_uc project_usecase.UseCase) *CmdProjectDelete {
 
 func (c *CmdProjectDelete) runCommand(cmd *cobra.Command, args []string) error {
 	if len(args) == 0 {
-		return errors.New("dplyon project delete <name>. Name is required")
+		return errors.New("dply project delete <name>. Name is required")
 	}
 	c.name = args[0]
 

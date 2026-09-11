@@ -28,7 +28,7 @@ func newCmdProjectChange() *CmdProjectChange {
 
 func (c *CmdProjectChange) runCommand(cmd *cobra.Command, args []string) error {
 	if len(args) == 0 {
-		return errors.New("dplyon project change <name>. Name is required")
+		return errors.New("dply project change <name>. Name is required")
 	}
 	c.project = args[0]
 

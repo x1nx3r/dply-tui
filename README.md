@@ -13,26 +13,26 @@ Custom k8s service deployment management
   kubectl create namespace <environment>
 ```
 
-## How to connect with dplyon tools
+## How to connect with dply tools
 1. Connect local machine with kube (means install kubectl etc.)
-2. Insall dplyon-client on local machine (run at dply folder)
-- ```go build -o dplyon```
+2. Install dply client on local machine (run at dply folder)
+- ```go build -o dply```
 - ```mkdir -p ~/bin```
-- ```mv dplyon ~/bin/```
+- ```mv dply ~/bin/```
 - ```echo 'export PATH="$HOME/bin:$PATH"' >> ~/.zshrc```
 - ```source ~/.zshrc```
-check dplyon already installed
-```dplyon```
-3. dplyon config set-dply-server <dply-server-ip>:<port>
-4. dplyon login -e <email> -p <password>
+check dply already installed
+```dply```
+3. dply config set-dply-server <dply-server-ip>:<port>
+4. dply login -e <email> -p <password>
 
 ## How to deploy new service
 1. Add docker image
-```dplyon image add -n <service-name> -i <repo@sha256:digest> -d "<desc>"```
+```dply image add -n <service-name> -i <repo@sha256:digest> -d "<desc>"```
 Verify image already registered
-```dplyon image list -n <service-name>```
+```dply image list -n <service-name>```
 2. Prepare environment variable
-```dplyon spec envar-edit -e <environment> -n <service-name>```
+```dply spec envar-edit -e <environment> -n <service-name>```
 Example
 ```
 {
@@ -61,7 +61,7 @@ Example
 }
 ```
 3. Prepare port configuration
-```dplyon spec port-edit -e <environment> -n <service-name>```
+```dply spec port-edit -e <environment> -n <service-name>```
 example
 ```
 {
@@ -84,7 +84,7 @@ example
 }
 ```
 4. Set scaling strategy
-```dplyon spec scaling-edit -e <environment> -n <service-name>```
+```dply spec scaling-edit -e <environment> -n <service-name>```
 example
 ```
 {
@@ -98,14 +98,14 @@ example
 }
 ```
 5. Deploy selected docker image
-```dplyon deploy image <digest> -e <environment> -n <service-name>```
+```dply deploy image <digest> -e <environment> -n <service-name>```
 6. Verify app started
 ```kubectl get pod -n <environment> -l app=<service-name>```
 
 ## How to update service or rollback
 1. Upload new image to specific environment
-```dplyon image add -n <service-name> -i <repo@sha256:digest> -d "<desc>"```
+```dply image add -n <service-name> -i <repo@sha256:digest> -d "<desc>"```
 2. Get image list
-```dplyon image list -n <service-name>```
+```dply image list -n <service-name>```
 3. Deploy selected docker image
-```dplyon deploy image <digest> -e <environment> -n <service-name>```
+```dply deploy image <digest> -e <environment> -n <service-name>```

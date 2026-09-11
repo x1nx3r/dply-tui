@@ -37,7 +37,7 @@ func newDeployImage(cfg *entity.Config, deploy_uc deploy_usecase.UseCase) *CmdDe
 
 func (c *CmdDeployImage) runCommand(cmd *cobra.Command, args []string) error {
 	if c.deploy_uc == nil {
-		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
+		return errors.New("You haven't setup the configuration. Run `dply config set-dply-server <dply-server-host>`")
 	} else if len(args) <= 0 {
 		return errors.New("deploy image <digest>. 'digest' parameter is required")
 	} else if c.env == "" {

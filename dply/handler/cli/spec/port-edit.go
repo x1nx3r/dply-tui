@@ -42,7 +42,7 @@ func newSpecPortEdit(cfg *entity.Config, port_uc port_usecase.UseCase) *CmdSpecP
 
 func (c *CmdSpecPortEdit) runCommand(cmd *cobra.Command, args []string) error {
 	if c.port_uc == nil {
-		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
+		return errors.New("You haven't setup the configuration. Run `dply config set-dply-server <dply-server-host>`")
 	} else if c.env == "" {
 		return errors.New("`-e` is required")
 	} else if c.name == "" {
