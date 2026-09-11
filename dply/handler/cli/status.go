@@ -70,7 +70,7 @@ func NewCmdStatus() *CmdStatus {
 
 func (c *CmdStatus) runCommand(cmd *cobra.Command, args []string) error {
 	if c.auth_uc == nil || c.server_uc == nil {
-		return errors.New("You haven't configure dply-server host. Run `dply config edit`")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	}
 	cfg := entity.Config{}.FromFile()
 	if cfg == nil {

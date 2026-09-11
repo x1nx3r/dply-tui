@@ -36,7 +36,7 @@ func (c *CmdConfigSetRegistryPassword) runCommand(cmd *cobra.Command, args []str
 		password = string(from_file_content)
 	} else {
 		if len(args) == 0 {
-			return fmt.Errorf("Parameter password is required. `dply config set-registry-password <password>`")
+			return fmt.Errorf("Parameter password is required. `dplyon config set-registry-password <password>`")
 		}
 		password = args[0]
 	}

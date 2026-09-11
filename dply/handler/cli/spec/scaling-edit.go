@@ -43,9 +43,9 @@ func newSpecScalingEdit(cfg *entity.Config, scale_uc scale_usecase.UseCase) *Cmd
 
 func (c *CmdSpecScalingEdit) runCommand(cmd *cobra.Command, args []string) error {
 	if c.scale_uc == nil {
-		return errors.New("You haven't configure config. command: `dply-cli config --server=<dply_server_host>`")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	} else if c.cfg == nil {
-		return errors.New("You haven't configure config. command: `dply-cli config --server=<dply_server_host>`")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	} else if c.env == "" {
 		return errors.New("`-e` is required")
 	} else if c.name == "" {
@@ -65,7 +65,7 @@ func (c *CmdSpecScalingEdit) runCommand(cmd *cobra.Command, args []string) error
 		return err
 	}
 	if ok {
-		fmt.Println("scaling config " + c.name + " (" + c.env + ") succesfully updated")
+		fmt.Println("scaling config " + c.name + " (" + c.env + ") successfully updated")
 	} else {
 		fmt.Println("Nothing to change")
 	}

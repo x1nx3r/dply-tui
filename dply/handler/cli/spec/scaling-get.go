@@ -37,7 +37,7 @@ func newSpecScalingGet(cfg *entity.Config, scale_uc scale_usecase.UseCase) *CmdS
 
 func (c *CmdSpecScalingGet) runCommand(cmd *cobra.Command, args []string) error {
 	if c.scale_uc == nil {
-		return errors.New("You haven't setup the configuration. command: `dply config edit` then set the `dply_server_host``")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	} else if c.env == "" {
 		return errors.New("`--env / -e` is required")
 	} else if c.name == "" {

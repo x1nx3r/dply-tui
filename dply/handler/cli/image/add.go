@@ -38,7 +38,7 @@ func newCmdImageAdd(cfg *entity.Config, image_uc image_usecase.UseCase) *CmdImag
 
 func (c *CmdImageAdd) runCommand(cmd *cobra.Command, args []string) error {
 	if c.image_uc == nil {
-		return errors.New("You haven't setup the configuration. command: `dply config edit` then set the `dply_server_host``")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	} else if c.name == "" {
 		data, err := serviceYaml.GetServiceYAML("service.yaml")
 		if err != nil || data.Name == "" {
@@ -58,7 +58,7 @@ func (c *CmdImageAdd) runCommand(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("image `" + c.image + " succesfully added")
+	fmt.Println("image `" + c.image + "` successfully added")
 
 	return nil
 }

@@ -15,7 +15,11 @@ import (
 // for bump version lagi
 func main() {
 
-	rootCmd := &cobra.Command{Use: "dplyon", Short: "dplyon", Long: "dplyon"}
+	rootCmd := &cobra.Command{
+		Use:   "dplyon",
+		Short: "CLI client for dply - k8s service deployment management",
+		Long:  "dplyon is the CLI client for dply, a custom k8s service deployment management tool. It registers container images, manages deployment specs (environment variables, ports, scaling, affinity) and deploys services into Kubernetes namespaces.",
+	}
 	rootCmd.AddCommand(cli.NewCmdStatus().Command)
 	rootCmd.AddCommand(cli.NewCmdLogin().Command)
 	rootCmd.AddCommand(cli.NewCmdLogout().Command)

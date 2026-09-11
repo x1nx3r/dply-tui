@@ -64,7 +64,7 @@ func (c *CmdLogin) runCommand(cmd *cobra.Command, args []string) error {
 	} else if err := checkmail.ValidateFormat(c.email); err != nil {
 		return errors.New("`--email / -e` is not email format, got: " + c.email)
 	} else if c.auth_uc == nil {
-		return errors.New("You haven't configure dply-server host. Run `dply config edit`")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	}
 
 	err := c.auth_uc.Login(c.email, c.password)

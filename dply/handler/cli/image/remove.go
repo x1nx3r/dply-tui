@@ -33,7 +33,7 @@ func newCmdImageRemove(image_uc image_usecase.UseCase) *CmdImageRemove {
 
 func (c *CmdImageRemove) runCommand(cmd *cobra.Command, args []string) error {
 	if c.image_uc == nil {
-		return errors.New("You haven't init config. command: `dply init config --server=<dply_server_host> --name=<name> --email=<email>`")
+		return errors.New("You haven't setup the configuration. Run `dplyon config set-dply-server <dply-server-host>`")
 	} else if c.serviceName == "" {
 		data, err := serviceYaml.GetServiceYAML("service.yaml")
 		if err != nil || data.Name == "" {
@@ -48,7 +48,7 @@ func (c *CmdImageRemove) runCommand(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("" + c.digest + " succesfully removed")
+	fmt.Println(c.digest + " successfully removed")
 
 	return nil
 }
